@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace _23LevelOrderTraversalBST
 {
-    // node blueprint
     class Node
     {
         public Node left, right;
@@ -68,31 +67,25 @@ namespace _23LevelOrderTraversalBST
 
         static void levelOrder(Node root)
         {
-            // create queue of data type node
             Queue<Node> queue = new Queue<Node>();
 
             Node now;
 
-            // if root is not empty, add int to queue
             if (root != null)
             {
                 queue.Enqueue(root);
             }
 
-            // while there are still nodes to process --> the queue is not empty
             while (queue.Count > 0)
             {
-                // dequeue next node, use as navigation placeholder
                 now = queue.Dequeue();
                 Console.Write(now.data + " ");
 
-                // if left node is not empty, add that int to queue
                 if (now.left != null)
                 {
                     queue.Enqueue(now.left);
                 }
 
-                // if right node is not empty, add that int to queue
                 if (now.right != null)
                 {
                     queue.Enqueue(now.right);
